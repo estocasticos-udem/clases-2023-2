@@ -26,9 +26,21 @@ import matplotlib.pyplot as plt
 # Y: Numero de paginas que anucian calzado
 
 """b. Enumere los valores que puede tomar X."""
-y = list(range(0,21))
+y = list(range(1,21))
 
 """c. Cuáles son los parámetros de la distribución."""
-p = 29/129
+p = 29/192
 Y = stats.geom(p)
 
+"""d. ¿Cuántas páginas espera que anuncien calzado? """
+media = Y.mean()
+print(f"Media = E(X) = {media:.4}")
+
+"""e. ¿Es probable que las veinte anuncien calzado en ellas? ¿Por qué sí o por qué no? """
+pmf_y = Y.pmf(y)
+print(f"P(X = 20) = {pmf_y[19]:.4}")
+
+""". ¿Cuál es la probabilidad de que menos de diez anuncien calzado en ellas?"""
+
+p_sum_9 = sum(pmf_y[:10]) 
+print(f"P(X < 10) = {p_sum_9:.4}")
